@@ -10,16 +10,18 @@ import MovieDetail from './MovieDetail';
 
 const App = () => (
   <Router>
-    <div className='App'>
+    <Wrapper className='App'>
       <header className='App-header'>
         <Link to='/'>
           <img src={logo} className='App-logo' alt='logo' />
         </Link>
       </header>
+      <Body>
       <Switch>
         <Route exact path='/' component={MoviesList} />
         <Route path='/:id' component={MovieDetail} />
       </Switch>
+      </Body>
       <StyledFooter>
         Built by
         <a href='https://austintrandolph.herokuapp.com'> Austin Randolph </a>
@@ -28,7 +30,7 @@ const App = () => (
           React for Everyone on LevelUp Tutorials
         </a>
       </StyledFooter>
-    </div>
+    </Wrapper>
   </Router>
 );
 
@@ -37,6 +39,17 @@ export default App;
 const StyledFooter = styled.footer`
   position: absolute;
   bottom: 0;
-  left: 35%;
-  height: 5%;
+  text-align: center;
+  height: 60px;
+  width: 100%;
+  background: #111;
+`;
+
+const Wrapper = styled.div`
+  min-height: 100%;
+  position: relative;
+`;
+
+const Body = styled.body`
+  padding-bottom: 20%;
 `;
